@@ -2,18 +2,17 @@
 //  AppDelegate.swift
 //  vaccination
 //
-//  Created by User on 11/9/21.
+//  Created by User on 18/9/21.
 //
 
 import UIKit
-
-@main
+import Firebase
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 

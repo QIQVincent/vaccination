@@ -3,80 +3,145 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CECB3D9726ECF3C400A73160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB3D9626ECF3C400A73160 /* AppDelegate.swift */; };
-		CECB3D9926ECF3C400A73160 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB3D9826ECF3C400A73160 /* SceneDelegate.swift */; };
-		CECB3D9B26ECF3C400A73160 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB3D9A26ECF3C400A73160 /* ViewController.swift */; };
-		CECB3D9E26ECF3C400A73160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECB3D9C26ECF3C400A73160 /* Main.storyboard */; };
-		CECB3DA026ECF3C500A73160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECB3D9F26ECF3C500A73160 /* Assets.xcassets */; };
-		CECB3DA326ECF3C500A73160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECB3DA126ECF3C500A73160 /* LaunchScreen.storyboard */; };
+		BE58A39DEDB8D35776AFEA17 /* Pods_vaccination.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7559A71C0A02FE63B54EA /* Pods_vaccination.framework */; };
+		CE14C37126F61C36001EBDC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14C37026F61C36001EBDC8 /* AppDelegate.swift */; };
+		CE14C37326F61C36001EBDC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14C37226F61C36001EBDC8 /* SceneDelegate.swift */; };
+		CE14C37526F61C36001EBDC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14C37426F61C36001EBDC8 /* ViewController.swift */; };
+		CE14C37826F61C36001EBDC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE14C37626F61C36001EBDC8 /* Main.storyboard */; };
+		CE14C37A26F61C37001EBDC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE14C37926F61C37001EBDC8 /* Assets.xcassets */; };
+		CE14C37D26F61C37001EBDC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE14C37B26F61C37001EBDC8 /* LaunchScreen.storyboard */; };
+		CE14C38526F61C8C001EBDC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE14C38426F61C8C001EBDC8 /* GoogleService-Info.plist */; };
+		CECD185926F61E3000D2630C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECD185726F61E3000D2630C /* SignUpViewController.swift */; };
+		CECD185A26F61E3000D2630C /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECD185826F61E3000D2630C /* BookingViewController.swift */; };
+		CEDDCFD626F77FC60065ED24 /* ClinicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDCFD526F77FC60065ED24 /* ClinicsCollectionViewCell.swift */; };
+		CEDDCFD926F79CE30065ED24 /* Clinic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDCFD826F79CE30065ED24 /* Clinic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CECB3D9326ECF3C400A73160 /* vaccination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vaccination.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CECB3D9626ECF3C400A73160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CECB3D9826ECF3C400A73160 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CECB3D9A26ECF3C400A73160 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CECB3D9D26ECF3C400A73160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CECB3D9F26ECF3C500A73160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CECB3DA226ECF3C500A73160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CECB3DA426ECF3C500A73160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17E7559A71C0A02FE63B54EA /* Pods_vaccination.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vaccination.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6F919DAE6C954E286C678F4 /* Pods-vaccination.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vaccination.debug.xcconfig"; path = "Target Support Files/Pods-vaccination/Pods-vaccination.debug.xcconfig"; sourceTree = "<group>"; };
+		C24208A81E0B007BFD91DA1B /* Pods-vaccination.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vaccination.release.xcconfig"; path = "Target Support Files/Pods-vaccination/Pods-vaccination.release.xcconfig"; sourceTree = "<group>"; };
+		CE14C36D26F61C36001EBDC8 /* vaccination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vaccination.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE14C37026F61C36001EBDC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE14C37226F61C36001EBDC8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CE14C37426F61C36001EBDC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE14C37726F61C36001EBDC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE14C37926F61C37001EBDC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE14C37C26F61C37001EBDC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE14C37E26F61C37001EBDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE14C38426F61C8C001EBDC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CECD185726F61E3000D2630C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CECD185826F61E3000D2630C /* BookingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		CEDDCFD526F77FC60065ED24 /* ClinicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEDDCFD826F79CE30065ED24 /* Clinic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clinic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CECB3D9026ECF3C400A73160 /* Frameworks */ = {
+		CE14C36A26F61C36001EBDC8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE58A39DEDB8D35776AFEA17 /* Pods_vaccination.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CECB3D8A26ECF3C400A73160 = {
+		90702325C456254AF6586A14 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CECB3D9526ECF3C400A73160 /* vaccination */,
-				CECB3D9426ECF3C400A73160 /* Products */,
+				B6F919DAE6C954E286C678F4 /* Pods-vaccination.debug.xcconfig */,
+				C24208A81E0B007BFD91DA1B /* Pods-vaccination.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE14C36426F61C36001EBDC8 = {
+			isa = PBXGroup;
+			children = (
+				CE14C36F26F61C36001EBDC8 /* vaccination */,
+				CE14C36E26F61C36001EBDC8 /* Products */,
+				90702325C456254AF6586A14 /* Pods */,
+				F2A982E50E579A47E71611DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		CECB3D9426ECF3C400A73160 /* Products */ = {
+		CE14C36E26F61C36001EBDC8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CECB3D9326ECF3C400A73160 /* vaccination.app */,
+				CE14C36D26F61C36001EBDC8 /* vaccination.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CECB3D9526ECF3C400A73160 /* vaccination */ = {
+		CE14C36F26F61C36001EBDC8 /* vaccination */ = {
 			isa = PBXGroup;
 			children = (
-				CECB3D9626ECF3C400A73160 /* AppDelegate.swift */,
-				CECB3D9826ECF3C400A73160 /* SceneDelegate.swift */,
-				CECB3D9A26ECF3C400A73160 /* ViewController.swift */,
-				CECB3D9C26ECF3C400A73160 /* Main.storyboard */,
-				CECB3D9F26ECF3C500A73160 /* Assets.xcassets */,
-				CECB3DA126ECF3C500A73160 /* LaunchScreen.storyboard */,
-				CECB3DA426ECF3C500A73160 /* Info.plist */,
+				CEDDCFE326F7ACB10065ED24 /* View */,
+				CEDDCFD726F79CD60065ED24 /* Models */,
+				CECD185626F61E1200D2630C /* ViewControllers */,
+				CE14C37026F61C36001EBDC8 /* AppDelegate.swift */,
+				CE14C37226F61C36001EBDC8 /* SceneDelegate.swift */,
+				CE14C37626F61C36001EBDC8 /* Main.storyboard */,
+				CE14C37926F61C37001EBDC8 /* Assets.xcassets */,
+				CE14C37B26F61C37001EBDC8 /* LaunchScreen.storyboard */,
+				CE14C37E26F61C37001EBDC8 /* Info.plist */,
+				CE14C38426F61C8C001EBDC8 /* GoogleService-Info.plist */,
 			);
 			path = vaccination;
+			sourceTree = "<group>";
+		};
+		CECD185626F61E1200D2630C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE14C37426F61C36001EBDC8 /* ViewController.swift */,
+				CECD185826F61E3000D2630C /* BookingViewController.swift */,
+				CECD185726F61E3000D2630C /* SignUpViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CEDDCFD726F79CD60065ED24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEDDCFD826F79CE30065ED24 /* Clinic.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CEDDCFE326F7ACB10065ED24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEDDCFD526F77FC60065ED24 /* ClinicsCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F2A982E50E579A47E71611DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17E7559A71C0A02FE63B54EA /* Pods_vaccination.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CECB3D9226ECF3C400A73160 /* vaccination */ = {
+		CE14C36C26F61C36001EBDC8 /* vaccination */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CECB3DA726ECF3C500A73160 /* Build configuration list for PBXNativeTarget "vaccination" */;
+			buildConfigurationList = CE14C38126F61C37001EBDC8 /* Build configuration list for PBXNativeTarget "vaccination" */;
 			buildPhases = (
-				CECB3D8F26ECF3C400A73160 /* Sources */,
-				CECB3D9026ECF3C400A73160 /* Frameworks */,
-				CECB3D9126ECF3C400A73160 /* Resources */,
+				F743BC1F9CF60C88C3C6EDBE /* [CP] Check Pods Manifest.lock */,
+				CE14C36926F61C36001EBDC8 /* Sources */,
+				CE14C36A26F61C36001EBDC8 /* Frameworks */,
+				CE14C36B26F61C36001EBDC8 /* Resources */,
+				986B02A6D26DEA2832BE975A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -84,24 +149,24 @@
 			);
 			name = vaccination;
 			productName = vaccination;
-			productReference = CECB3D9326ECF3C400A73160 /* vaccination.app */;
+			productReference = CE14C36D26F61C36001EBDC8 /* vaccination.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CECB3D8B26ECF3C400A73160 /* Project object */ = {
+		CE14C36526F61C36001EBDC8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					CECB3D9226ECF3C400A73160 = {
+					CE14C36C26F61C36001EBDC8 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
 			};
-			buildConfigurationList = CECB3D8E26ECF3C400A73160 /* Build configuration list for PBXProject "vaccination" */;
+			buildConfigurationList = CE14C36826F61C36001EBDC8 /* Build configuration list for PBXProject "vaccination" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,55 +174,102 @@
 				en,
 				Base,
 			);
-			mainGroup = CECB3D8A26ECF3C400A73160;
-			productRefGroup = CECB3D9426ECF3C400A73160 /* Products */;
+			mainGroup = CE14C36426F61C36001EBDC8;
+			productRefGroup = CE14C36E26F61C36001EBDC8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CECB3D9226ECF3C400A73160 /* vaccination */,
+				CE14C36C26F61C36001EBDC8 /* vaccination */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CECB3D9126ECF3C400A73160 /* Resources */ = {
+		CE14C36B26F61C36001EBDC8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CECB3DA326ECF3C500A73160 /* LaunchScreen.storyboard in Resources */,
-				CECB3DA026ECF3C500A73160 /* Assets.xcassets in Resources */,
-				CECB3D9E26ECF3C400A73160 /* Main.storyboard in Resources */,
+				CE14C37D26F61C37001EBDC8 /* LaunchScreen.storyboard in Resources */,
+				CE14C38526F61C8C001EBDC8 /* GoogleService-Info.plist in Resources */,
+				CE14C37A26F61C37001EBDC8 /* Assets.xcassets in Resources */,
+				CE14C37826F61C36001EBDC8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		986B02A6D26DEA2832BE975A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-vaccination/Pods-vaccination-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-vaccination/Pods-vaccination-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-vaccination/Pods-vaccination-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F743BC1F9CF60C88C3C6EDBE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-vaccination-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		CECB3D8F26ECF3C400A73160 /* Sources */ = {
+		CE14C36926F61C36001EBDC8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CECB3D9B26ECF3C400A73160 /* ViewController.swift in Sources */,
-				CECB3D9726ECF3C400A73160 /* AppDelegate.swift in Sources */,
-				CECB3D9926ECF3C400A73160 /* SceneDelegate.swift in Sources */,
+				CECD185A26F61E3000D2630C /* BookingViewController.swift in Sources */,
+				CEDDCFD926F79CE30065ED24 /* Clinic.swift in Sources */,
+				CE14C37526F61C36001EBDC8 /* ViewController.swift in Sources */,
+				CE14C37126F61C36001EBDC8 /* AppDelegate.swift in Sources */,
+				CECD185926F61E3000D2630C /* SignUpViewController.swift in Sources */,
+				CEDDCFD626F77FC60065ED24 /* ClinicsCollectionViewCell.swift in Sources */,
+				CE14C37326F61C36001EBDC8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CECB3D9C26ECF3C400A73160 /* Main.storyboard */ = {
+		CE14C37626F61C36001EBDC8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CECB3D9D26ECF3C400A73160 /* Base */,
+				CE14C37726F61C36001EBDC8 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		CECB3DA126ECF3C500A73160 /* LaunchScreen.storyboard */ = {
+		CE14C37B26F61C37001EBDC8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CECB3DA226ECF3C500A73160 /* Base */,
+				CE14C37C26F61C37001EBDC8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -165,7 +277,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CECB3DA526ECF3C500A73160 /* Debug */ = {
+		CE14C37F26F61C37001EBDC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +338,7 @@
 			};
 			name = Debug;
 		};
-		CECB3DA626ECF3C500A73160 /* Release */ = {
+		CE14C38026F61C37001EBDC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -281,8 +393,9 @@
 			};
 			name = Release;
 		};
-		CECB3DA826ECF3C500A73160 /* Debug */ = {
+		CE14C38226F61C37001EBDC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6F919DAE6C954E286C678F4 /* Pods-vaccination.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -299,8 +412,9 @@
 			};
 			name = Debug;
 		};
-		CECB3DA926ECF3C500A73160 /* Release */ = {
+		CE14C38326F61C37001EBDC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C24208A81E0B007BFD91DA1B /* Pods-vaccination.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,25 +434,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CECB3D8E26ECF3C400A73160 /* Build configuration list for PBXProject "vaccination" */ = {
+		CE14C36826F61C36001EBDC8 /* Build configuration list for PBXProject "vaccination" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CECB3DA526ECF3C500A73160 /* Debug */,
-				CECB3DA626ECF3C500A73160 /* Release */,
+				CE14C37F26F61C37001EBDC8 /* Debug */,
+				CE14C38026F61C37001EBDC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CECB3DA726ECF3C500A73160 /* Build configuration list for PBXNativeTarget "vaccination" */ = {
+		CE14C38126F61C37001EBDC8 /* Build configuration list for PBXNativeTarget "vaccination" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CECB3DA826ECF3C500A73160 /* Debug */,
-				CECB3DA926ECF3C500A73160 /* Release */,
+				CE14C38226F61C37001EBDC8 /* Debug */,
+				CE14C38326F61C37001EBDC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CECB3D8B26ECF3C400A73160 /* Project object */;
+	rootObject = CE14C36526F61C36001EBDC8 /* Project object */;
 }
