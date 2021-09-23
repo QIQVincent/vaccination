@@ -15,6 +15,8 @@
 		CE14C37A26F61C37001EBDC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE14C37926F61C37001EBDC8 /* Assets.xcassets */; };
 		CE14C37D26F61C37001EBDC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE14C37B26F61C37001EBDC8 /* LaunchScreen.storyboard */; };
 		CE14C38526F61C8C001EBDC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE14C38426F61C8C001EBDC8 /* GoogleService-Info.plist */; };
+		CE1C200C26F8408A00D2520F /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C200B26F8408A00D2520F /* AppointmentViewController.swift */; };
+		CE1C200E26F86C5600D2520F /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C200D26F86C5600D2520F /* Hours.swift */; };
 		CECD185926F61E3000D2630C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECD185726F61E3000D2630C /* SignUpViewController.swift */; };
 		CECD185A26F61E3000D2630C /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECD185826F61E3000D2630C /* BookingViewController.swift */; };
 		CEDDCFD626F77FC60065ED24 /* ClinicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDCFD526F77FC60065ED24 /* ClinicsCollectionViewCell.swift */; };
@@ -34,6 +36,8 @@
 		CE14C37C26F61C37001EBDC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE14C37E26F61C37001EBDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE14C38426F61C8C001EBDC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE1C200B26F8408A00D2520F /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
+		CE1C200D26F86C5600D2520F /* Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hours.swift; sourceTree = "<group>"; };
 		CECD185726F61E3000D2630C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CECD185826F61E3000D2630C /* BookingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		CEDDCFD526F77FC60065ED24 /* ClinicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				CE14C37426F61C36001EBDC8 /* ViewController.swift */,
+				CE1C200B26F8408A00D2520F /* AppointmentViewController.swift */,
 				CECD185826F61E3000D2630C /* BookingViewController.swift */,
 				CECD185726F61E3000D2630C /* SignUpViewController.swift */,
 			);
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDDCFD826F79CE30065ED24 /* Clinic.swift */,
+				CE1C200D26F86C5600D2520F /* Hours.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,12 +251,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1C200C26F8408A00D2520F /* AppointmentViewController.swift in Sources */,
 				CECD185A26F61E3000D2630C /* BookingViewController.swift in Sources */,
 				CEDDCFD926F79CE30065ED24 /* Clinic.swift in Sources */,
 				CE14C37526F61C36001EBDC8 /* ViewController.swift in Sources */,
 				CE14C37126F61C36001EBDC8 /* AppDelegate.swift in Sources */,
 				CECD185926F61E3000D2630C /* SignUpViewController.swift in Sources */,
 				CEDDCFD626F77FC60065ED24 /* ClinicsCollectionViewCell.swift in Sources */,
+				CE1C200E26F86C5600D2520F /* Hours.swift in Sources */,
 				CE14C37326F61C36001EBDC8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

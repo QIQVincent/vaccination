@@ -1,0 +1,5 @@
+﻿id,name,weekdayStart,weekdayEnd,SaturdayStart,SaturdayEnd,SundayStart,SundayEnd
+1,24hours,0,24,0,24,0,24
+2,Normal,9,17,9,13,0,0
+3,Extended,8,18,9,15,9,13
+4,Weekday,9,17,0,0,0,0

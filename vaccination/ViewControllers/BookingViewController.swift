@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  BookingViewController.swift
 //  vaccination
 //
 //  Created by User on 12/9/21.
@@ -17,10 +17,15 @@ class BookingViewController: UIViewController, CLLocationManagerDelegate {
     // Variables for dealing with user location
     var locationManager = CLLocationManager()
     var center = CLLocationCoordinate2D()
+    var userEmail: String?
     
     // variables related to Database
     var clinicsList = [Clinic]()
     var clinicsCollectionRef: CollectionReference!
+    var clinicDetails: Clinic?
+    var hoursSelected: String = "All"
+    var searchText: String?
+    var distanceMaximum: Double?
     
     let selectorView = UIView()
     let selectorTableView = UITableView()
@@ -33,12 +38,18 @@ class BookingViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var clinicsCollectionView: UICollectionView!
     @IBOutlet weak var selectVaccineTypeButton: UIButton!
     @IBOutlet weak var selectOperatingHoursButton: UIButton!
+    @IBOutlet weak var distanceMaximumTextField: UITextField!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        searchButton.layer.cornerRadius = 10
+        messageLabel.alpha = 0
+
         // Select Vaccine Selector setup
         selectorTableView.delegate = self
         selectorTableView.dataSource = self
@@ -60,7 +71,7 @@ class BookingViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         clinicsCollectionRef.getDocuments { (querySnapshot, error) in
             if let err = error {
-                debugPrint("Error fetching docs: \(err)")
+                debugPrint("Error getting docs: \(err)")
             } else {
                 guard let snap = querySnapshot else {return}
                 for document in snap.documents {
@@ -70,10 +81,11 @@ class BookingViewController: UIViewController, CLLocationManagerDelegate {
                     let address = data["address"] as? String ?? ""
                     let latitude = data["latitude"] as? CLLocationDegrees ?? 0
                     let longitude = data["longitude"] as? CLLocationDegrees ?? 0
+                    let hours = data["hours"] as? String ?? ""
                     let docId = document.documentID
                     let distance = self.calculateDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
                     //print(data,name,docId)
-                    let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance)
+                    let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
                     self.clinicsList.append(newClinic)
                 }
                 self.clinicsCollectionView.reloadData()
@@ -81,7 +93,136 @@ class BookingViewController: UIViewController, CLLocationManagerDelegate {
         }
         //print(clinicsList.count)
     }
-    func fetchData() {
+    func fetchData(vaccineType: String) {
+        clinicsList.removeAll()
+        print("Retrieving \(vaccineType)")
+        if (searchText == nil || searchText! == "") {
+            if self.hoursSelected == "All" || self.hoursSelected == "Filter by Operating Hours" {
+                clinicsCollectionRef.whereField("vaccineType", isEqualTo: vaccineType).getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        guard let snap = querySnapshot else {return}
+                        for document in snap.documents {
+                            let data = document.data()
+                            let vaccineType = data["vaccineType"] as? String ?? ""
+                            let name = data["name"] as? String ?? ""
+                            let address = data["address"] as? String ?? ""
+                            let latitude = data["latitude"] as? CLLocationDegrees ?? 0
+                            let longitude = data["longitude"] as? CLLocationDegrees ?? 0
+                            let hours = data["hours"] as? String ?? ""
+                            let docId = document.documentID
+                            let distance = self.calculateDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+                            //print(data,name,docId)
+                            if self.distanceMaximum != nil {
+                                if distance < self.distanceMaximum! {
+                                    let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
+                                    self.clinicsList.append(newClinic)
+                                }
+                            } else {
+                                let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
+                                self.clinicsList.append(newClinic)
+                            }
+                         }
+                    }
+                    debugPrint("search by vaccine type only \(self.searchText) \(self.distanceMaximum)")
+                    self.clinicsCollectionView.reloadData()
+                }
+            } else {
+                clinicsCollectionRef.whereField("vaccineType", isEqualTo: vaccineType).whereField("hours", isEqualTo: self.hoursSelected).getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        guard let snap = querySnapshot else {return}
+                        for document in snap.documents {
+                            let data = document.data()
+                            let vaccineType = data["vaccineType"] as? String ?? ""
+                            let name = data["name"] as? String ?? ""
+                            let address = data["address"] as? String ?? ""
+                            let latitude = data["latitude"] as? CLLocationDegrees ?? 0
+                            let longitude = data["longitude"] as? CLLocationDegrees ?? 0
+                            let hours = data["hours"] as? String ?? ""
+                            let docId = document.documentID
+                            let distance = self.calculateDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+                            //print(data,name,docId)
+                            let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
+                            self.clinicsList.append(newClinic)
+                         }
+                    }
+                    debugPrint("search by vaccine type and hours")
+                    self.clinicsCollectionView.reloadData()
+                }
+            }
+        } else {
+            if self.hoursSelected == "All" || self.hoursSelected == "Filter by Operating Hours" {
+                clinicsCollectionRef.whereField("vaccineType", isEqualTo: vaccineType).getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        guard let snap = querySnapshot else {return}
+                        for document in snap.documents {
+                            let data = document.data()
+                            let vaccineType = data["vaccineType"] as? String ?? ""
+                            let name = data["name"] as? String ?? ""
+                            let address = data["address"] as? String ?? ""
+                            let latitude = data["latitude"] as? CLLocationDegrees ?? 0
+                            let longitude = data["longitude"] as? CLLocationDegrees ?? 0
+                            let hours = data["hours"] as? String ?? ""
+                            let docId = document.documentID
+                            let distance = self.calculateDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+                            //print(data,name,docId)
+                            if self.distanceMaximum != nil {
+                                if (name.contains(self.searchText!) && distance < self.distanceMaximum! ) {
+                                    let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
+                                    self.clinicsList.append(newClinic)
+                                }
+                            } else {
+                                if name.contains(self.searchText!) {
+                                    let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
+                                    self.clinicsList.append(newClinic)
+                                }
+                            }
+                        }
+                    }
+                    print("search by vaccine type and search text")
+                    self.clinicsCollectionView.reloadData()
+                }
+            } else {
+                clinicsCollectionRef.whereField("vaccineType", isEqualTo: vaccineType).whereField("hours", isEqualTo: self.hoursSelected).getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        guard let snap = querySnapshot else {return}
+                        for document in snap.documents {
+                            let data = document.data()
+                            let vaccineType = data["vaccineType"] as? String ?? ""
+                            let name = data["name"] as? String ?? ""
+                            let address = data["address"] as? String ?? ""
+                            let latitude = data["latitude"] as? CLLocationDegrees ?? 0
+                            let longitude = data["longitude"] as? CLLocationDegrees ?? 0
+                            let hours = data["hours"] as? String ?? ""
+                            let docId = document.documentID
+                            let distance = self.calculateDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+                            //print(data,name,docId)
+                            if self.distanceMaximum != nil {
+                                if (name.contains(self.searchText!) && distance < self.distanceMaximum! ) {
+                                    let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
+                                    self.clinicsList.append(newClinic)
+                                }
+                            } else {
+                                if name.contains(self.searchText!) {
+                                    let newClinic = Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
+                                    self.clinicsList.append(newClinic)
+                                }
+                            }
+                         }
+                    }
+                    print("search by vaccine type and hours and search text")
+                    self.clinicsCollectionView.reloadData()
+                }
+            }
+        }
+        
         db.collection("clinics").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
@@ -94,9 +235,10 @@ class BookingViewController: UIViewController, CLLocationManagerDelegate {
                 let address = data["Address"] as? String ?? ""
                 let latitude = data["Latitude"] as? CLLocationDegrees ?? 0
                 let longitude = data["Longitude"] as? CLLocationDegrees ?? 0
+                let hours = data["hours"] as? String ?? ""
                 let distance = self.calculateDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
                 let docId = queryDocumentSnapshot.documentID
-                return Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance)
+                return Clinic(id: docId, vaccineType: vaccineType, name: name, address: address, latitude: latitude, longitude: longitude, distance: distance, hours: hours)
             }
         }
     }
@@ -140,27 +282,34 @@ class BookingViewController: UIViewController, CLLocationManagerDelegate {
         let distance = point1.distance(to: point2)/1000
         return distance
     }
-// ["string":data, "string":"string"]
+
     @IBAction func selectVaccineTypeAction(_ sender: Any) {
-        dataSource = ["Pfizer-BioNTech", "Moderna", "Sinovac"]
+        dataSource = ["Pfizer-BioNTech", "Moderna", "SinoVac"]
         buttonSelected = selectVaccineTypeButton
         addFilterSelector(CGRectframe: selectVaccineTypeButton.frame)
     }
     @IBAction func selectOperatingHoursAction(_ sender: Any) {
-        dataSource = ["All", "24hours", "ExtendedHours", "WeekdaysOnly"]
+        dataSource = ["All", "24hours", "Normal", "Extended", "Weekday"]
         buttonSelected = selectOperatingHoursButton
         addFilterSelector(CGRectframe: selectOperatingHoursButton.frame)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func searchAction(_ sender: Any) {
+        showMessage("")
+        let vaccineType = selectVaccineTypeButton.title(for: .normal)! as String
+        self.hoursSelected = selectOperatingHoursButton.title(for: .normal)! as String
+        if let distance = Double(distanceMaximumTextField.text!) {
+            self.distanceMaximum = distance
+        } else {
+            showMessage("Please enter valid number for distance")
+        }
+        self.searchText = searchTextField.text
+        self.fetchData(vaccineType: vaccineType)
     }
-    */
 
+    func showMessage(_ message:String) {
+        messageLabel.text = message
+        messageLabel.alpha = 1
+    }
 }
 
 extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -176,8 +325,20 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showMessage("")
         buttonSelected.setTitle(dataSource[indexPath.row], for: .normal)
         removeFilterSelector()
+        let vaccineType = selectVaccineTypeButton.title(for: .normal)! as String
+        self.hoursSelected = selectOperatingHoursButton.title(for: .normal)! as String
+        if let distance = Double(distanceMaximumTextField.text!) {
+            self.distanceMaximum = distance
+        } else {
+            showMessage("Please enter valid number for distance")
+        }
+        self.searchText = searchTextField.text
+        //print(selectVaccineTypeButton.title(for: .normal))
+        //print(selectOperatingHoursButton.title(for: .normal))
+        self.fetchData(vaccineType: vaccineType)
     }
 }
 
@@ -192,6 +353,15 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         } else {
             return UICollectionViewCell()
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.clinicDetails = clinicsList[indexPath.row]
+        performSegue(withIdentifier: "appointment", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var vc = segue.destination as! AppointmentViewController
+        vc.selectedClinicDetails = self.clinicDetails
+        vc.userEmail = self.userEmail
     }
 }
 

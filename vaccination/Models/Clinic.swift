@@ -16,4 +16,5 @@ struct Clinic: Identifiable {
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
     var distance: Double
+    var hours: String
 }

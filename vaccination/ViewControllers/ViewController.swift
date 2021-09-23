@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
+    var userEmail: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,6 +29,9 @@ class ViewController: UIViewController {
     @IBAction func loginAction(_ sender: Any) {
         let email = emailTextField.text
         let password = passwordTextField.text
+        // Uncomment to bypass authentication
+        // self.loadBookingView()
+        userEmail = email!.trimmingCharacters(in: .whitespacesAndNewlines)
         Auth.auth().signIn(withEmail: email!.trimmingCharacters(in: .whitespacesAndNewlines), password: password!.trimmingCharacters(in: .whitespacesAndNewlines)) { (result, loginerror) in
             if loginerror != nil {
                 self.messageLabel.text = loginerror!.localizedDescription
@@ -38,6 +43,7 @@ class ViewController: UIViewController {
     }
     func loadBookingView() {
         let bookingView = storyboard?.instantiateViewController(identifier: "BookingView") as? BookingViewController
+        bookingView?.userEmail = userEmail
         view.window?.rootViewController = bookingView
         view.window?.makeKeyAndVisible()
     }

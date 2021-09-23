@@ -17,6 +17,6 @@ class ClinicsCollectionViewCell: UICollectionViewCell {
     
     func configure(clinic: Clinic) {
         clinicLabel.text = clinic.name
-        print(clinic)
+        //print(clinic)
     }
 }
